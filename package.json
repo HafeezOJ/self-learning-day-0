@@ -1,0 +1,31 @@
+{
+  "name": "self-learning-day-0",
+  "version": "1.0.0",
+  "description": "Day: AP and GP",
+  "main": "app/main.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "mocha tests/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HafeezOJ/self-learning-day-0.git"
+  },
+  "keywords": [
+    "AP",
+    "and",
+    "GP"
+  ],
+  "author": "Hafeez Adepoju",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HafeezOJ/self-learning-day-0/issues"
+  },
+  "homepage": "https://github.com/HafeezOJ/self-learning-day-0#readme",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^3.5.3"
+  }
+}
