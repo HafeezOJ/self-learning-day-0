@@ -5,14 +5,14 @@ module.exports = {
 		
 		if(!Array.isArray(progression)) return  'Please supply a list';
 
-		let isNumbers = progression.every(function(element){
+		let isNumbers = progression.every((element)=>{
 			return typeof(element) == 'number';
 		})
 
 		if (isNumbers == 'false') return 'Your list contains element(s) that is/are not numbers';
 
-		let ap = 'false';
-		let gp = 'false';
+		let isArithmeticProgression = 'false';
+		let isGeometricProgression = 'false';
 		if(progression.length===0){
 			return 0;
 		}
@@ -21,26 +21,26 @@ module.exports = {
 		}
 		else{
 			let lastIndex = progression.length - 1;
-			let commonDifferenceofAp = progression[1] - progression[0];
-			let commonDifferenceofGp = progression[1] / progression[0];
-			progression.forEach(function(element, index){
+			const commonDifferenceOfAp = progression[1] - progression[0];
+			const commonRatioOfGp = progression[1] / progression[0];
+			progression.forEach((element, index)=>{
 				if(index == 0){
-					commonDifferenceofAp == progression[index+1] - element? ap = 'true': ap='false';
-					commonDifferenceofGp == progression[index+1] / element? gp = 'true': gp='false';
+					commonDifferenceOfAp == progression[index+1] - element? isArithmeticProgression = 'true': isArithmeticProgression='false';
+					commonRatioOfGp == progression[index+1] / element? isGeometricProgression = 'true': isGeometricProgression ='false';
 				}else if(index == lastIndex){
-					commonDifferenceofAp == element - progression[index-1]? ap = 'true': ap='false';
-					commonDifferenceofGp == element / progression[index-1]? gp = 'true': gp='false';
+					commonDifferenceOfAp == element - progression[index-1]? isArithmeticProgression = 'true': isArithmeticProgression='false';
+					commonRatioOfGp == element / progression[index-1]? isGeometricProgression = 'true': isGeometricProgression ='false';
 				}
 				else{
-					commonDifferenceofAp == progression[index+1] - element? ap = 'true': ap='false';
-					commonDifferenceofGp == progression[index+1] / element? gp = 'true': gp='false';
+					commonDifferenceOfAp == progression[index+1] - element? isArithmeticProgression = 'true': isArithmeticProgression='false';
+					commonRatioOfGp == progression[index+1] / element? isGeometricProgression = 'true': isGeometricProgression='false';
 				}
 
 			})
-			if(ap == 'true') return 'Arithmetic'
-			if(gp == 'true') return 'Geometric'
-			if(ap == 'false' && gp == 'false') return -1;
-		}
-		
+			if(isArithmeticProgression == 'true') return 'Arithmetic'
+			if(isGeometricProgression == 'true') return 'Geometric'
+			if(isArithmeticProgression == 'false' && isGeometricProgression == 'false') return -1;
+		}	
 	}
 }
+
